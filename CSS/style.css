@@ -1,0 +1,66 @@
+/* ====== Project Specific Styles ====== */
+
+body {
+	font-size: 20px;
+}
+
+code {
+	font-size: 20px;
+}
+
+ul {
+	list-style-type: none;
+	padding-left: 0;
+} 
+
+#att a {
+	color: #555;
+}
+/* ====== Page Specific Styles ====== */
+
+/* intro */
+#intro main {
+	position: relative;
+	height: 100vh;
+	background-image: url("../images/browser.jpg");
+	background-size: cover;
+}
+
+#intro .overlay {
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	background-color: rgba(0, 0, 0, 0.75);
+}
+
+#intro #att {
+	position: absolute;
+	bottom: 10px;
+	left: 20px;
+}
+
+#intro #banner {
+	position: absolute;
+	width: 60%;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+}
+#intro #banner h1 {
+	font-size: 95px;
+}
+
+#intro .modal {
+	position: absolute;
+	min-height: 100px;
+	min-width: 300px;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+}
+#intro .modal i {
+	float: right;
+	margin-right: 10px;
+	margin-top: 10px;
+}
+
