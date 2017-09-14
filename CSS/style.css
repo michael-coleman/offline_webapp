@@ -109,3 +109,11 @@ ul {
 	opacity: 0.8;
 }
 
+/* 03-technologies-related.html {{{1 */
+#technologies .api.related {
+	background-color: #22bb5b;
+}
+
+#technologies #banner .related h3 {
+	background-color: #22bb5b;
+}
