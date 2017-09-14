@@ -3,9 +3,8 @@
 
 // test for - service worker - incompatible situations
 if ( window.location.hostname !== "localhost" && 
-	                                  window.location.protocol !== "http:" ) {
-	console.log('window.location.protocol is: ' + window.location.protocol );
-	alert('[Warning] https is required for service workers');
+	                                  window.location.protocol !== "https:" ) {
+	alert('[NOTICE] https is required for service workers');
 }
 
 console.log( 'registering service worker' );
