@@ -68,3 +68,44 @@ ul {
 	margin-top: 10px;
 }
 
+
+/* 02-technologies {{{1 */
+#technologies main {
+	position: relative;
+	height: 100vh;
+	background-image: url("../images/road_landscape.jpg");
+	background-size: cover;
+}
+
+
+
+#technologies #banner {
+	position: absolute;
+	width: 90%;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+	text-align: center;
+}
+
+#technologies #banner h2 {
+	background-color: #111;
+	color: #eee;
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+#technologies #banner h3 {
+	background-color: #111;
+	color: #eee;
+	margin-top: 10px;
+}
+ 
+#technologies .api {
+	float: left;
+	background-color: #111;
+	color: #eee;
+	padding: 15px;
+	margin: 15px;
+	opacity: 0.8;
+}
+
