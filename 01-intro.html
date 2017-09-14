@@ -24,6 +24,8 @@
 				<h3>
 					F11 for full screen
 				</h3>
+				<div id="wiw">
+				</div>
 			</div>
 			 
 			<div id="att" class="text-grey-999" style="font-size: 15px;">
@@ -32,6 +34,10 @@
 		</div>
 	</main>
 	 
+	<script>
+		var wiw = `innerWidth: <strong>${window.innerWidth}</strong>`;
+		document.getElementById('wiw').innerHTML = wiw;
+	</script>
 	<script src="./js/crispy.js"></script>
 	<script src="./js/index.js"></script>
 </body>
