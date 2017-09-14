@@ -1,3 +1,7 @@
+/* vim: foldmethod=marker
+ */
+ 
+ 
 /* ====== Project Specific Styles ====== */
 
 body {
@@ -18,7 +22,7 @@ ul {
 }
 /* ====== Page Specific Styles ====== */
 
-/* intro */
+/* 01-intro {{{1 */
 #intro main {
 	position: relative;
 	height: 100vh;
@@ -30,7 +34,7 @@ ul {
 	position: absolute;
 	height: 100%;
 	width: 100%;
-	background-color: rgba(0, 0, 0, 0.75);
+	background-color: rgba(0, 0, 0, 0.50);
 }
 
 #intro #att {
@@ -47,7 +51,7 @@ ul {
 	transform: translate(-50%,-50%);
 }
 #intro #banner h1 {
-	font-size: 95px;
+	font-size: 65px;
 }
 
 #intro .modal {
