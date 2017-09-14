@@ -24,9 +24,6 @@ ul {
 	padding-left: 0;
 } 
 
-#att a {
-	color: #555;
-}
 /* ====== Page Specific Styles ====== */
 
 /* 01-intro {{{1 */
@@ -52,14 +49,14 @@ ul {
 
 #intro #banner {
 	position: absolute;
-	width: 60%;
+	width: 80%;
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%,-50%);
 }
 #intro #banner h1 {
 	font-family: 'Oswald';
-	font-size: 65px;
+	font-size: 75px;
 	font-weight: 700;
 }
 
