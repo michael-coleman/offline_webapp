@@ -361,55 +361,97 @@ crispy.back_to_top = (function() {   // {{{
 	 
 })();  // }}}
 
-crispy.typeahead = (function() { // {{{
+crispy.typeahead = { // {{{
 	
-	
-	return {
-		/** 
-		 * suggestions controller
-		 * Controller function which manages overall suggestion generation
-		 * filtering and updating page, triggered by keyup event on input
-		 * element
-		 */
-		controller : function(event) {
-			// get the filtered list
-			var typedChars = event.target.value
-			 
-			if ( crispy.typeahead.full_list ) {
-				crispy.typeahead.sublist = 
-					crispy.typeahead.extract( typedChars, 
-					                              crispy.typeahead.full_list);
-			} else {
-				console.log(
-				      '[Typeahead Error] raw suggestion data not available');
-			}
-			 
-			// update the view with the filtered list
-		},
+	/** suggestions controller  // {{{
+	 * Controller function which manages overall suggestion generation
+	 * filtering and updating page, triggered by keyup event on input
+	 * element
+	 }}} */
+	controller : function(event) {     // {{{
+		// get the filtered list
+		var typedChars = event.target.value
 		 
-		/** Extracts suggestions from raw list of data based on chars {{{
-		 * already typed
-		 *
-		 * @param {String} charsToMatch  The chars the user has already typed.
-		 *                               This will be used as the criteria
-		 *                               by which raw entries will be kept
-		 * @param {String[]} unfiltered  An numeric array of raw suggestions
-		 *                               to be filtered down into a subset
-		 * @return {String[]}            A filtered subset of the original 
-		 *                               suggestions
-		 }}} */
-		extract : function (charsToMatch, unfiltered) {  // {{{
-			return unfiltered.filter(function(el) {
-				var r = new RegExp(charsToMatch, 'i');
-				return el.city.match(r) || el.state.match(r);
-			});
-		}   // }}}
-	}
-})();  // }}}
-/** typeahead initialisation 
+		if ( crispy.typeahead.full_list ) {
+			crispy.typeahead.sublist = 
+				crispy.typeahead.extract( typedChars, 
+				                              crispy.typeahead.full_list);
+		} else {
+			console.log('[Typeahead Error] suggestion data not available, ' + 
+				' it is expected to be somewhere like ' + 
+				' crispy.typeahead.full_list');
+		}
+		 
+		// update the view with the filtered list
+		var container = document.querySelector('[data-typeahead-container]');
+		 
+		crispy.typeahead.update_view(container, crispy.typeahead.sublist, 
+			                                                    typedChars);
+	},   // }}}
+	 
+	/** returns a subset from a full list which match the passed string {{{
+	 * 
+	 *
+	 * @param {String} charsToMatch  The chars the user has already typed.
+	 *                               This will be used as the criteria
+	 *                               by which raw entries will be kept
+	 * @param {String[]} unfiltered  An numeric array of raw suggestions
+	 *                               to be filtered down into a subset
+	 * @return {Object[]}            A filtered subset of the original 
+	 *                               suggestions
+	 }}} */
+	extract : function (charsToMatch, unfiltered) {  // {{{
+		return unfiltered.filter(function(el) {
+			var r = new RegExp(charsToMatch, 'i');
+			return el.city.match(r) || el.state.match(r);
+		});
+	},   // }}}
+	 
+	/** inserts the updated suggestions into the typeahead container {{{
+	 * already typed
+	 *
+	 * @param {HTMLElement} container  The typeahead container into which the
+	 *                                 suggestions will be inserted
+	 * @param {String[]} suggestions  An numeric array of raw suggestions
+	 *                                 to be filtered down into a subset
+	 * @param {String}  chars_typed   Chars user has typed so far
+	 * @return void (undefined)
+	 }}} */
+	update_view : function(container, suggestions, chars_typed) {  // {{{
+		 
+		var html = suggestions.map(function(el) {
+			var row = 
+			`<tr><td>City: ${el.city}</td> <td>State: ${el.state}</td></tr>\n`;
+			 
+			// replace matched chars with HTML which will highlight chars
+			var r = new RegExp(chars_typed, 'i');
+			row = row.replace(r, 
+			 '<span style="background-color: #ffae00;">' + chars_typed 
+				                                                + '</span>');
+			return row;
+		});
+		 
+		html = html.join('');       // implode the array into a string around
+		                            // the '' empty character
+		
+		// for some reason, the extract() function returns a large list when
+		// the user reduced the typed chars to nothing - its as if the last
+		// character is still being used for the regex match
+		// if the chars_typed is empty set the container to no innerHTML.
+		if ( chars_typed === "") {
+			container.innerHTML = "";
+			return;
+		}
+		container.innerHTML = html;
+	}   // }}}
+		 
+};  // }}}
+/** typeahead initialisation  {{{
  * TODO add ability to use more than one typeahead on a page?
- */
-(function() {
+ }}} */
+(function() {  // {{{
+	// if a [data-typeahead-control] element exists, attach the typeahead
+	// controller function for the keyup event
 	crispy.typeahead.control = 
 		                 document.querySelector('[data-typeahead-control]');
 	if ( crispy.typeahead.control ) {
@@ -417,13 +459,7 @@ crispy.typeahead = (function() { // {{{
 			.addEventListener('keyup', crispy.typeahead.controller);
 	}
 	 
-	crispy.typeahead.container = 
-			            document.querySelector('[data-typeahead-container]');
-	if  ( crispy.typeahead.container ) {
-		
-	}
-
-})();
+})();   // }}}
  
 
  
@@ -432,6 +468,37 @@ crispy.typeahead = (function() { // {{{
  * -------------------------------------------------------
  */
 
+/** xhr wrapper for GET requests    {{{
+ *
+ * example usage
+ *
+ * crispy.get('https://....')
+ *  .then(function(responseText) {
+ *  	// do something with response
+ *  })
+ *  .catch(function(xhr) {
+ *  	console.log('[crispy.get ERROR] ', xhr);
+ *  })
+ *  
+ * @param {String} url the URL to fetch
+ }}} */
+crispy.get = function(url) {
+	return new Promise(function(resolve, reject) {
+		 
+		var xhr = new XMLHttpRequest();
+		xhr.onload = function() {
+			if (xhr.status === 200) {
+				resolve( xhr.responseText );
+			} else {
+				reject( xhr );
+			}
+		};
+		 
+		xhr.open('GET', url);
+		xhr.send();
+	});
+}
+ 
 /** checks status of fetch webapi "Response" objects  {{{
  *
  * Example
@@ -500,6 +567,25 @@ crispy.highlight_active_nav = function() {    // {{{
 	
 }; // }}}
 
+/** escapeHTML  {{{
+ * source:
+ * https://stackoverflow.com/a/12034334/4668401
+ }}} */ 
+crispy.escapeHTML = function(string) {  // {{{
+	var entityMap = {
+		'&': '&amp;',
+		'<': '&lt;',
+		'>': '&gt;',
+		'"': '&quot;',
+		"'": '&#39;',
+		'/': '&#x2F;',
+		'`': '&#x60;',
+		'=': '&#x3D;'
+	};
+	return String(string).replace(/[&<>"'`=\/]/g, function (match) {
+		return entityMap[match];
+	});
+}; // }}}
 
 /* helper scripts  
 /* --------------
