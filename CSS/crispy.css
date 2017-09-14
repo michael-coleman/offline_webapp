@@ -80,7 +80,8 @@ p {
  * give <pre> and <code> a similar general appearance
  */
 code, pre {
-	font-family:  monospace, "courier new";
+	font-family:  monospace, "courier new";     /* is it appropriate to apply 
+	                                               monospaced font to <pre>? */
 	font-size: 15px;
 	overflow: auto;
 	margin: 0;
@@ -122,17 +123,18 @@ pre code {
 	                                      http://markup.su/highlighter/  */
 	background-color: #042029;         /* color as per "solorized" syntax 
 	                                      highlighting */
+	 
 }
  
-/* basic styling for inline <code> elements. I.e. when it appears by itself
- * and not within a <pre> tag.
+/* basic styling for inline <code> elements.
+ * when <code> appears by itself, and not within a <pre> tag, e.g. a single
+ * word in a sentence, it will only be lightly styled, so it doesn't stand out
+ * as a series of patches against the surrounding paragraph text.
+ * when it appears in <pre> tags, these styles will be overriden.
  */
 code {
-	background-color: #ddd;
-	/* color: #333; */
 	
-	/* Note: when you have text inside <code> tags where the <code> element {{{
-	 * itself is inside a <pre> tag.
+	/* Issue: overflow scroll bars appearing when <code> inside <pre> {{{
 	 * if the <code> element has more than say, 2px padding, its box
 	 * overflows outside the pre tag. (why doesn't the <pre> balloon?)
 	 * Because this stylesheet sets `overflow: auto;` on <pre> this causes
