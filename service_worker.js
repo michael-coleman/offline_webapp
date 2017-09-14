@@ -16,6 +16,7 @@ var cache_files = [
 	'03-technologies-related.html',
 	'CSS/crispy.css',
 	'CSS/style.css',
+	'fonts/Oswald/Oswald-Bold.ttf',
 	'images/browser.jpg',
 	'images/road_landscape.jpg',
 	'./js/crispy.js',

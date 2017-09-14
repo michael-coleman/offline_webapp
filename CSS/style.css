@@ -4,6 +4,13 @@
  
 /* ====== Project Specific Styles ====== */
 
+@font-face {
+	src: url('../fonts/Oswald/Oswald-Bold.ttf') format('truetype');
+	font-family: 'Oswald'; 
+	font-weight: 700;
+}
+
+
 body {
 	font-size: 20px;
 }
@@ -51,7 +58,9 @@ ul {
 	transform: translate(-50%,-50%);
 }
 #intro #banner h1 {
+	font-family: 'Oswald';
 	font-size: 65px;
+	font-weight: 700;
 }
 
 #intro .modal {
