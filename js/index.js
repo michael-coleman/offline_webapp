@@ -11,7 +11,8 @@ console.log( 'registering service worker' );
 if ('serviceWorker' in navigator) {
 	
 	// '/' is default, need to limit it to `prog_webapp_talk/` subdirectory
-	navigator.serviceWorker.register('sw.js', { scope: '/prog_webapp_talk/'})
+	navigator.serviceWorker.register('service_worker.js', 
+		{ scope : '/offline_webapp/' })
 	.then(function(registration) {
 		 
 		console.log('registration ok');
