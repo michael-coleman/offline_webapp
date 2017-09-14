@@ -1,5 +1,32 @@
 // js for prog web app talk
 
+
+// test for - service worker - incompatible situations
+if ( window.location.hostname !== "localhost" && 
+	                                  window.location.protocol !== "http:" ) {
+	alert('[Warning] https is required for service workers');
+}
+
+console.log( 'registering service worker' );
+if ('serviceWorker' in navigator) {
+	
+	// '/' is default, need to limit it to `prog_webapp_talk/` subdirectory
+	navigator.serviceWorker.register('sw.js', { scope: '/prog_webapp_talk/'})
+	.then(function(registration) {
+		 
+		console.log('registration ok');
+		 
+	})
+	.catch(function(err) {
+		 
+		console.log('Error registering service worker', err);
+		 
+	});
+} else {
+	console.log('[Notice] serviceworkers not available');
+}
+
+
 // fetch nav sidebar and insert into page
 crispy.get('templates/nav.html')
 	.then(function(response) {
