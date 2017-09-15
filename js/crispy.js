@@ -554,12 +554,12 @@ crispy.getText = function(response) {    // {{{
 crispy.highlight_active_nav = function() {    // {{{
 	// obtain list of nav anchor elements and where the href attribute points
 	// to
-	var anchorList = document.querySelectorAll('nav a');
+	var anchorList = document.querySelectorAll('nav div');
 	
 	for (var i=0; i < anchorList.length; i++) {
 		
 		// loop through list check if any attributes match current URL
-		if (anchorList[i].href == window.location.href) {
+		if (anchorList[i].firstElementChild.href == window.location.href) {
 			
 			// apply "active" class to any elements 
 			anchorList[i].className = anchorList[i].className + " active";
