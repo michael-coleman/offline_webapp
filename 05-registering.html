@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name=viewport content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="./CSS/crispy.css">
+	<link rel="stylesheet" href="./CSS/style.css">
+	<link rel="stylesheet"
+		href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+	<title></title>
+</head>
+<body id="registering">
+	<nav class="col-ovr768-2 phn" style="font-size: 15px;">
+	</nav>
+	<main class="col-ovr768-10 phn" style="position: relative; 
+						background-color: #042029; height: 100vh;">
+		
+		<h1 class="text-uppercase text-center text-grey-eee">Registering</h1>
+
+		<h4 class="text-grey-eee mlm">file: index.js</h4>
+		 
+<pre style="background:#042029;color:#839496">if ('serviceWorker' in navigator) {
+    
+    navigator.serviceWorker.register(<span style="color:#269186"><span style="color:#c60000">'</span>service_worker.js<span style="color:#c60000">'</span></span>, 
+        { scope : <span style="color:#269186"><span style="color:#c60000">'</span>/offline_webapp/<span style="color:#c60000">'</span></span> })
+    .then(function(registration) {
+         
+        console.log(<span style="color:#269186"><span style="color:#c60000">'</span>registration ok<span style="color:#c60000">'</span></span>);
+         
+    })
+    .catch(function(err) {
+         
+        console.log(<span style="color:#269186"><span style="color:#c60000">'</span>Error registering service worker<span style="color:#c60000">'</span></span>, err);
+         
+    });
+} else {
+    console.log(<span style="color:#269186"><span style="color:#c60000">'</span>[Notice] serviceworkers not available<span style="color:#c60000">'</span></span>);
+}
+
+</pre>
+		 
+	</main>
+	 
+	<script src="./js/crispy.js"></script>
+	<script src="./js/index.js"></script>
+</body>
+</html>

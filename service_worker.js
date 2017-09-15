@@ -17,6 +17,7 @@ var cache_files = [
 	'035-examples.html',
 	'036-lets-go-offline.html',
 	'04-cache-vs-HTTP.html',
+	'05-registering.html',
 	'CSS/crispy.css',
 	'CSS/style.css',
 	'fonts/Oswald/Oswald-Bold.ttf',
