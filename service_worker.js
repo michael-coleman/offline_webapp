@@ -22,6 +22,7 @@ var cache_files = [
 	'fonts/Oswald/Oswald-Bold.ttf',
 	'images/browser.jpg',
 	'images/road_landscape.jpg',
+	'images/guardian_crossword.jpg',
 	'https://farm1.static.flickr.com/47/128619313_80708b3c22.jpg',
 	'./js/crispy.js',
 	'./js/index.js',
