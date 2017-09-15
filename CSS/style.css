@@ -24,6 +24,17 @@ ul {
 	padding-left: 0;
 } 
 
+/* nav */
+
+nav div {
+	padding-top: 4px;
+	padding-bottom: 4px;
+}
+
+.active {
+	background-color: #ddd;
+}
+
 /* ====== Page Specific Styles ====== */
 
 /* 01-intro {{{1 */

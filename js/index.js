@@ -32,6 +32,9 @@ if ('serviceWorker' in navigator) {
 crispy.get('templates/nav.html')
 	.then(function(response) {
 		document.getElementsByTagName('nav')[0].innerHTML = response;
+	// highlight nav link for current page
+	crispy.highlight_active_nav();
+	
 	})
 	.catch(function(err) {
 		console.log("error fetching nav template: ", err);
