@@ -19,24 +19,18 @@
 
 		<h4 class="text-grey-eee mlm">file: index.js</h4>
 		 
-<pre style="background:#042029;color:#839496">if ('serviceWorker' in navigator) {
-    
-    navigator.serviceWorker.register(<span style="color:#269186"><span style="color:#c60000">'</span>service_worker.js<span style="color:#c60000">'</span></span>, 
-        { scope : <span style="color:#269186"><span style="color:#c60000">'</span>/offline_webapp/<span style="color:#c60000">'</span></span> })
-    .then(function(registration) {
-         
-        console.log(<span style="color:#269186"><span style="color:#c60000">'</span>registration ok<span style="color:#c60000">'</span></span>);
-         
-    })
-    .catch(function(err) {
-         
-        console.log(<span style="color:#269186"><span style="color:#c60000">'</span>Error registering service worker<span style="color:#c60000">'</span></span>, err);
-         
-    });
-} else {
-    console.log(<span style="color:#269186"><span style="color:#c60000">'</span>[Notice] serviceworkers not available<span style="color:#c60000">'</span></span>);
-}
-
+<pre style="background:#042029;color:#839496"><span style="color:#859900">if</span> <span style="color:#93a1a1">(</span><span style="color:#269186"><span style="color:#c60000">'</span>serviceWorker<span style="color:#c60000">'</span></span> <span style="color:#859900">in</span> <span style="color:#859900">navigator</span><span style="color:#93a1a1">)</span> <span style="color:#268bd2">{</span>
+    <span style="color:#859900">navigator</span>.serviceWorker.register<span style="color:#93a1a1">(</span><span style="color:#269186"><span style="color:#c60000">'</span>service_worker.js<span style="color:#c60000">'</span></span>, 
+                              <span style="color:#268bd2">{</span> scope : <span style="color:#269186"><span style="color:#c60000">'</span>/offline_webapp/<span style="color:#c60000">'</span></span> <span style="color:#268bd2">}</span><span style="color:#93a1a1">)</span>
+    .then<span style="color:#93a1a1">(</span><span style="color:#268bd2">function</span><span style="color:#93a1a1">(</span>registration<span style="color:#93a1a1">)</span> <span style="color:#268bd2">{</span>
+        console<span style="color:#268bd2">.log</span><span style="color:#93a1a1">(</span><span style="color:#269186"><span style="color:#c60000">'</span>registration ok<span style="color:#c60000">'</span></span><span style="color:#93a1a1">)</span>;
+    <span style="color:#268bd2">}</span><span style="color:#93a1a1">)</span>
+    .<span style="color:#859900">catch</span><span style="color:#93a1a1">(</span><span style="color:#268bd2">function</span><span style="color:#93a1a1">(</span>err<span style="color:#93a1a1">)</span> <span style="color:#268bd2">{</span>
+        console<span style="color:#268bd2">.log</span><span style="color:#93a1a1">(</span><span style="color:#269186"><span style="color:#c60000">'</span>Error registering service worker<span style="color:#c60000">'</span></span>, err<span style="color:#93a1a1">)</span>;
+    <span style="color:#268bd2">}</span><span style="color:#93a1a1">)</span>;
+<span style="color:#268bd2">}</span> <span style="color:#859900">else</span> <span style="color:#268bd2">{</span>
+    console<span style="color:#268bd2">.log</span><span style="color:#93a1a1">(</span><span style="color:#269186"><span style="color:#c60000">'</span>[Notice] serviceworkers not available<span style="color:#c60000">'</span></span><span style="color:#93a1a1">)</span>;
+<span style="color:#268bd2">}</span>
 </pre>
 		 
 	</main>
