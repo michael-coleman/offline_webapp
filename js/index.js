@@ -7,7 +7,6 @@ if ( window.location.hostname !== "localhost" &&
 	alert('[NOTICE] https is required for service workers');
 }
 
-console.log( 'registering service worker' );
 if ('serviceWorker' in navigator) {
 	
 	// '/' is default, need to limit it to `prog_webapp_talk/` subdirectory
