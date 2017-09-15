@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name=viewport content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="./CSS/crispy.css">
+	<link rel="stylesheet" href="./CSS/style.css">
+	<link rel="stylesheet"
+		href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+	<title></title>
+</head>
+<body id="cache-v-http">
+	<nav class="col-ovr768-2 phn" style="font-size: 15px;">
+	</nav>
+	<main class="col-ovr768-10 text-grey-eee phn" style="position: relative;">
+		
+		<h1>Cache VS HTTP cache</h1>
+			<div id="left">
+				<h2>HTTP CACHE (regular)</h2>
+				<i class="fa fa-cloud fa-4x mll mts"></i>
+				<br>
+				<h3 class="mll">Expires</h3>
+				<h3 class="mll">Validation</h3>
+			</div>
+			<div id="right">
+				<div id="content">
+					<h2 style="margin-left: 60px;">CACHE (service worker)</h2>
+					<i class="fa fa-database fa-4x mll mts"></i>
+					<br>
+					<br>
+					
+					<a data-exp-trg="cache" href="https://material.io"
+						class="text-grey-eee">details <span class="caret"></span></a>
+					<div data-exp-con="cache">
+						<h3>Pre-fetching</h3>
+						<h3>Persistence <br>
+							(wont be deleted by browser or user)</h3>
+					</div>
+				</div>
+			</div>
+		 
+	</main>
+	 
+	<script src="./js/crispy.js"></script>
+	<script src="./js/index.js"></script>
+</body>
+</html>
