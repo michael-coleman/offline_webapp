@@ -266,8 +266,10 @@ crispy.expandable = {           // {{{
 		 
 		exp_triggers[i].addEventListener('click', function(event) {
 			// get name of expandable trigger/container pair
+			event.preventDefault();
 			var exp_pair = event.target.dataset.expTrg;
 			crispy.expandable.expand_or_collapse(exp_pair);
+
 		});
 		 
 		// get name of expandable trigger/container pair
