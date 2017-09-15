@@ -134,3 +134,61 @@ nav div {
 #technologies #banner .related h3 {
 	background-color: #22bb5b;
 }
+ 
+ 
+/* 036-lets-go-offline.html {{{1 */
+
+#lets-go-offline .wrapper {
+	position: relative;
+	height: 100vh;
+	background-image: url('https://farm1.static.flickr.com/47/128619313_80708b3c22.jpg');
+	background-size: cover;
+}
+
+#lets-go-offline h1 {
+	font-size: 72px;
+	color: white;
+}
+
+#lets-go-offline #att {
+	position: absolute;
+	bottom: 20px;
+}
+ 
+ 
+/* 04-cache-vs-HTTP.html {{{1 */
+#cache-v-http h1 {
+	position: absolute;
+	left: 50%;
+	transform: translate(-50%, 0);
+}
+
+#cache-v-http {
+	height: 100vh;
+	overflow-x: hidden;
+}
+ 
+#cache-v-http h2 {
+	margin-left: 40px;
+}
+ 
+#left {
+	position: absolute;
+	background-color: #333;
+	height: 100vh;
+	left: 0;
+	width: 80%;
+}
+
+#right {
+	position: absolute;
+	left: 40%;
+	width: 100%;
+	background-color: #555;
+	height: 100vh;
+	transform: skewX(-15deg);
+}
+
+#right #content {
+	transform: skewX(15deg);
+}
