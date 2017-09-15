@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name=viewport content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="./CSS/crispy.css">
+	<link rel="stylesheet" href="./CSS/style.css">
+	<link rel="stylesheet"
+		href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+	<title></title>
+</head>
+<body id="registering">
+	<nav class="col-ovr768-2 phn" style="font-size: 15px;">
+	</nav>
+	<main class="col-ovr768-10 phn" style="position: relative; 
+						background-color: #042029; height: 100vh;">
+		
+		<h1 class="text-center text-grey-eee">install (event)</h1>
+
+		<h4 class="text-grey-eee mlm">file: service_worker.js</h4>
+		 
+<pre style="background:#042029;color:#839496"><span style="color:#268bd2">var</span> cache_name <span style="color:#859900">=</span> <span style="color:#269186"><span style="color:#c60000">"</span>v1<span style="color:#c60000">"</span></span>;
+<span style="color:#268bd2">var</span> cache_files <span style="color:#859900">=</span> <span style="color:#268bd2">[</span>
+    <span style="color:#269186"><span style="color:#c60000">'</span>01-intro.html<span style="color:#c60000">'</span></span>,
+    ...
+    <span style="color:#269186"><span style="color:#c60000">'</span>CSS/style.css<span style="color:#c60000">'</span></span>,
+    <span style="color:#269186"><span style="color:#c60000">'</span>fonts/Oswald/Oswald-Bold.ttf<span style="color:#c60000">'</span></span>,
+    <span style="color:#269186"><span style="color:#c60000">'</span>images/browser.jpg<span style="color:#c60000">'</span></span>,
+    ...
+    <span style="color:#269186"><span style="color:#c60000">'</span>https://cdnjs.cloudflare.com/fontawesome-webfont.woff2<span style="color:#c60000">'</span></span>,
+<span style="color:#268bd2">]</span>;
+self.addEventListener<span style="color:#93a1a1">(</span><span style="color:#269186"><span style="color:#c60000">'</span>install<span style="color:#c60000">'</span></span>, <span style="color:#268bd2">function</span><span style="color:#93a1a1">(</span><span style="color:#859900">event</span><span style="color:#93a1a1">)</span> <span style="color:#268bd2">{</span>
+    <span style="color:#859900">event</span>.waitUntil<span style="color:#93a1a1">(</span>
+        caches.<span style="color:#a57800">open</span><span style="color:#93a1a1">(</span>cache_name<span style="color:#93a1a1">)</span>.then<span style="color:#93a1a1">(</span><span style="color:#268bd2">function</span><span style="color:#93a1a1">(</span>cache<span style="color:#93a1a1">)</span> <span style="color:#268bd2">{</span>
+            <span style="color:#859900">return</span> cache.addAll<span style="color:#93a1a1">(</span>cache_files<span style="color:#93a1a1">)</span>;
+        <span style="color:#268bd2">}</span><span style="color:#93a1a1">)</span>
+    <span style="color:#93a1a1">)</span>;
+<span style="color:#268bd2">}</span><span style="color:#93a1a1">)</span>;
+</pre>
+		 
+	</main>
+	 
+	<script src="./js/crispy.js"></script>
+	<script src="./js/index.js"></script>
+</body>
+</html>
