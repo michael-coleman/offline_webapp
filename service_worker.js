@@ -40,7 +40,7 @@ self.addEventListener('install', function(event) {
 	 
 	event.waitUntil(
 		caches.open(cache_name).then(function(cache) {
-			console.log('[* Caching files in cache], again...');
+			console.log('[* adding files to cache]');
 			return cache.addAll(cache_files);
 		})
 	);
@@ -50,7 +50,8 @@ self.addEventListener('install', function(event) {
 // TODO: If the cache_name has been updated, update the cache
 self.addEventListener('activate', function(event) {
 	 
-	console.log( '[* ServiceWorker activating - only runs if overtaking old worker?] should update cache here...' );
+	// console.log( 
+	// '[* ServiceWorker activating - only runs if overtaking old worker?] should update cache here...' );
 	 
 	event.waitUntil(
 		caches.keys().then(function(cache_name) {
