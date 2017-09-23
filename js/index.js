@@ -16,7 +16,9 @@ function offline_ready() {
 	// add styles and content to notification box
 	notification.className = "bg-grey-333 pam text-grey-eee";
 	notification.style.position = "fixed";
-	notification.style.bottom = "0%";
+	notification.style.bottom = "10px";
+	notification.style.left = "10px";
+	notification.style.opacity = "0.85";
 	notification.innerHTML = 
 	`Service Worker install succeeded, app is offline ready
 	                                   <i class="fa fa-window-close mlm"></i>`;
